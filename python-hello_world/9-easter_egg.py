@@ -67,4 +67,3 @@ import this
 
 
 
-print("\n")
