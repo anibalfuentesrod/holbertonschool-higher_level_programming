@@ -8,4 +8,3 @@ def uppercase(str):
             print("{}".format(chr(assci_value - 32)), end="")
         else:
             print(char, end="")
-uppercase("holberton")
