@@ -6,3 +6,4 @@ def uppercase(str):
             char = chr(ord(char) - 32)
             # Convert lowercase letter to uppercase by subtracting 32 from Ascii
             print("{}".format(char), end="")
+    print("")
