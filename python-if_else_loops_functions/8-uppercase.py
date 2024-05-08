@@ -7,4 +7,4 @@ def uppercase(str):
             # Convert lowercase letter to uppercase by subtracting 32 from Ascii
             print("{}".format(chr(assci_value - 32)))
         else:
-            print(char)
+            print(char, end="")
