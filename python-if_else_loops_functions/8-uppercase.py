@@ -1,9 +1,11 @@
 #!/usr/bin/python3
 def uppercase(str):
     for char in str:
-        # Check if character is a lowercase letter
+       # Check if tha char is a low letter
         if ord(char) >= 97 and ord(char) <= 122:
+            # Convert low letter to upper substracting 32 from assci
             char = chr(ord(char) - 32)
-            # Convert lowercase letter to uppercase by subtracting 32 from Ascii
+            # Print the char (either converted or unchanged)
             print("{}".format(char), end="")
-    print("")
+            # Print a new line after printing the upper string
+print("")
