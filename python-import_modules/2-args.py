@@ -1,17 +1,12 @@
 #!/usr/bin/python3
 import sys
 if __name__ == "__main__":
-
     if (len(sys.argv) - 1) != 1:
         print("{} arguments".format(len(sys.argv) - 1), end='')
-
     else:
         print("{} argument".format(len(sys.argv) - 1), end='')
-
-    
     if len(sys.argv) == 1:
         print(".")
-
     else:
         print(":")
 
@@ -19,4 +14,3 @@ if __name__ == "__main__":
         if count == 0:
             continue
         print("{}: {}".format(count, argument))
-        
