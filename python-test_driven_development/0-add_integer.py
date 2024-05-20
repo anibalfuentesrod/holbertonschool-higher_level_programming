@@ -8,7 +8,7 @@ Prototype:
 
 def add_integer(a, b=98):
     """
-    add two int or floats, casting floats to int
+    Function that adds two int
     """
     if not isinstance(a, (int, float)):
         raise TypeError("a must be an integer")
