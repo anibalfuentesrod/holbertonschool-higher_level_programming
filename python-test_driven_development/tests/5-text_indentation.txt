@@ -1,0 +1,64 @@
+===============================
+How to Use 5-text_indentation.py
+===============================
+
+This module defines a function ``text_indentation(text)``.
+
+Usage
+=====
+
+``text_indentation(...)`` prints a text with 2 new lines after each of these characters: ., ? and :.
+
+::
+
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+    >>> text_indentation("Hello. How are you? I'm fine. Thanks!")
+    Hello.
+    How are you?
+    I'm fine.
+    Thanks!
+
+::
+
+    >>> text_indentation("This is a test: to see if it works. Hopefully, it does?")
+    This is a test:
+    to see if it works.
+    Hopefully, it does?
+
+The function also removes any extra spaces following these characters.
+
+::
+
+    >>> text_indentation("Test with spaces.     What about now?")
+    Test with spaces.
+    What about now?
+
+If the text does not contain the specified characters, it prints as is.
+
+::
+
+    >>> text_indentation("No special characters here")
+    No special characters here
+
+Invalid Input
+=============
+
+If the parameter ``text`` is not a string, a TypeError is raised.
+
+::
+
+    >>> text_indentation(123)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+::
+
+    >>> text_indentation(None)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+The function handles empty strings correctly.
+
+::
+
+    >>> text_indentation("")
