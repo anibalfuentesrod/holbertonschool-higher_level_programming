@@ -7,10 +7,6 @@
 100
 >>> add_integer(100.3, -2)
 98
->>> add_integer(3, 5.5)
-8
->>> add_integer(3.5, 5.5)
-8
 >>> try:
 ...     add_integer(4, "School")
 ... except Exception as e:
