@@ -1,24 +1,28 @@
->>> add_integer(1, 2)
-3
->>> add_integer(100, -2)
-98
->>> add_integer(2)
+>>> add_integer = __import__('0-add_integer').add_integer
+
+# Test with integers
+>>> add_integer(10, 20)
+30
+
+# Test with floats that need to be converted
+>>> add_integer(10.5, 2.5)
+12
+
+# Test with default parameter value
+>>> add_integer(100)
+198
+
+# Test with a float and an int
+>>> add_integer(50.1, 50)
 100
->>> add_integer(100.3, -2)
-98
->>> add_integer(1.5, 1.5)
-2
->>> add_integer(1.5, 5)
-6
->>> try:
-...     add_integer(4, "School")
-... except Exception as e:
-...     print(e)
-...
-b must be an integer
->>> try:
-...     add_integer(None)
-... except Exception as e:
-...     print(e)
-...
-a must be an integer
+
+# Test raising TypeError for invalid inputs
+>>> add_integer("100", 100)
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
+
+>>> add_integer(100, "abc")
+Traceback (most recent call last):
+    ...
+TypeError: b must be an integer
