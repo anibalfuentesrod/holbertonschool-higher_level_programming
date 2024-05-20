@@ -3,3 +3,7 @@
 My name is John Smith
 >>> say_my_name("Walter", "White")
 My name is Walter White
+>>> say_my_name("Anibal", "Fuentes")
+My name is Anibal Fuentes
+>>> say_my_name("Hola", "Mundo")
+My name is Hola Mundo
