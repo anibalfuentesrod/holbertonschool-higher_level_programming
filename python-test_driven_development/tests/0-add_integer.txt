@@ -1,0 +1,25 @@
+>>> add_integer = __import__('0-add_integer').add_integer
+>>> add_integer(1, 2)
+3
+>>> add_integer(100, -2)
+98
+>>> add_integer(2)
+100
+>>> add_integer(100.3, -2)
+98
+>>> add_integer(3, 5.5)
+8
+>>> add_integer(3.5, 5.5)
+8
+>>> try:
+...     add_integer(4, "School")
+... except Exception as e:
+...     print(e)
+...
+b must be an integer
+>>> try:
+...     add_integer(None)
+... except Exception as e:
+...     print(e)
+...
+a must be an integer
