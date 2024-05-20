@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """
-
 THis module has a func that adds two int
-
+Prototype:
+    def add_integer(a, b=98)
 """
 
 
