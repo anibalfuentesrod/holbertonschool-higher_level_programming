@@ -7,8 +7,8 @@ This module has a func that adds two int
 
 
 def add_integer(a, b=98):
-    """
-    Function that adds two int
+    """Function that adds two int
+    returns the int
     """
     if not isinstance(a, (int, float)):
         raise TypeError("a must be an integer")
