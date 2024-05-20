@@ -1,5 +1,13 @@
 >>> add_integer = __import__('0-add_integer').add_integer
 
+# Adding zero to zero
+>>> add_integer(0, 0)
+0
+
+# Adding a negative int to a positive one
+>>> add_integer(-5, 5)
+0
+
 # Test with integers
 >>> add_integer(10, 20)
 30
