@@ -8,21 +8,20 @@ def text_indentation(text):
         TypeError: if tezt is not str
     """
     if not isinstance(text, str):
-        raise TypeError("text must be as string")
+        raise TypeError("text musssssst be a string")
     
-    characters = ".?:"
-    result = ""
-    i = 0
-
-    while i < len(text):
-        if text[i] in characters:
-            result += text[i] + "\n\n"
-            i += 1
-            while i < len(text) and text[i] == ' ':
-                i += 1
-        else:
-            result += text[i]
-            i += 1
     
-    result = result.rstrip()
-    print(result + "\n", end="")
+    char = 0
+    while char < len(text) and text[char] == ' ':
+        char += 1
+    
+    while char < len(text):
+        print(text[char], end="")
+        if text[char] == "\n" or text[char] in ".?:":
+            if text[char] in ".?:":
+                print("\n")
+            char += 1
+            while char < len(text) and text[char] == ' ':
+                char += 1
+            continue
+        char += 1
