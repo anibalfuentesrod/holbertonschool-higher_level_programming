@@ -19,6 +19,7 @@ def add_integer(a, b=98):
     b = conv_int(b)
     return int(a) + int(b)
 
+
 def conv_int(num):
     if isinstance(num, float):
         num = int(num)
