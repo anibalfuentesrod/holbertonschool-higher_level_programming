@@ -15,4 +15,11 @@ def add_integer(a, b=98):
     if not isinstance(b, (int, float)):
         raise TypeError("b must be an integer")
 
+    a = conv_int(a)
+    b = conv_int(b)
     return int(a) + int(b)
+
+def conv_int(num):
+    if isinstance(num, float):
+        num = int(num)
+    return num
