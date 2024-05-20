@@ -3,22 +3,6 @@ The `add_integer` Module
 
 Function: `add_integer(a, b=98)`
 ---------------------------------
-
-Adds two integers.
-
-- Parameters:
-  - `a`: An integer or float.
-  - `b`: An integer or float. Default is 98.
-
-- Returns:
-  - An integer: the addition of `a` and `b`.
-
-- Raises:
-  - `TypeError`: If `a` or `b` are not integers or floats.
-
-- Behavior:
-  - `a` and `b` are first casted to integers if they are floats.
-  - No module imports are allowed.
 >>> add_integer = __import__('0-add_integer').add_integer
 >>> add_integer(1, 2)
 3
