@@ -6,7 +6,7 @@ Making a class: Rectange that defines a rectangle
 
 class Rectangle:
     """
-    def some functions, like, height and width
+    def some functions, like: height and width
 
     Raises:
         TypeError
@@ -37,5 +37,5 @@ class Rectangle:
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
         if value < 0:
-            raise ValueError("width mus be >= 0")
+            raise ValueError("width must be >= 0")
         self.__width = value
