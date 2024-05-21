@@ -5,4 +5,8 @@ just an empty class
 
 
 class Rectangle:
+    """
+    Class name: Rectangle
+
+    """
     pass
