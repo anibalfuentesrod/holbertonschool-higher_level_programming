@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-"""simple class"""
-
 
 class MyList(list):
-    """def a func that prints elements"""
+    """A list that includes a method to print the list in sorted order."""
+
     def print_sorted(self):
+        """Print the list in ascending sorted order."""
         print(sorted(self))
