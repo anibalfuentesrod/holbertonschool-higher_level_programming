@@ -12,6 +12,7 @@ making a new inherited class call square
 
 class Square(Rectangle):
     """A class representing a square."""
+
     def __init__(self, size):
         """
         Initialize the Square with size.
@@ -21,6 +22,8 @@ class Square(Rectangle):
         """
         super().__init__(size, size)
     """def the str and this func returns"""
+
     def __str__(self):
         """Return a string representation of the Square."""
+
         return f"[Square] {self._Rectangle__width}/{self._Rectangle__height}"
