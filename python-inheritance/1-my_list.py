@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""
-Writing a class that inherits list
-"""
+"""simple class"""
 
 
 class MyList(list):
