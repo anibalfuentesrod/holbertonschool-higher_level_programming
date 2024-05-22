@@ -2,7 +2,7 @@
 How to use 1-my_list
 ====================
 
-THis module defines a class MyList tha inherits the built-in list:
+This module defines a class MyList tha inherits the built-in list:
 
 test:
     >>> MyList = __import__('1-my_list').MyList
