@@ -7,7 +7,10 @@ an instance of the specified class
 
 def is_same_class(obj, a_class):
     """
-    my func returns the type() of obj adn compares it to a_class
+    my func returns the type() of obj and compares it to a_class
+    Args:
+        obj
+        a_class
     """
     if type(obj) == a_class:
         return True
