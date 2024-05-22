@@ -4,14 +4,11 @@ Rectangle = __import__('9-rectangle').Rectangle
 
 
 class Square(Rectangle):
-    """Representation of a square."""
-
+    """A class representing a square."""
     def __init__(self, size):
-        """initialize a new square.
-
-        Args:
-            size(int)
-        """
-        self.integer_validator("size", size)
+        """Initialize the Square with size."""
         super().__init__(size, size)
-        self.__size = size
+
+    def __str__(self):
+        """Return a string representation of the Square."""
+        return f"[Square] {self._Rectangle__width}/{self._Rectangle__height}"
