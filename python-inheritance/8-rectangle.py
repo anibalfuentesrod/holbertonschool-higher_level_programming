@@ -45,8 +45,11 @@ class Rectangle(BaseGeometry):
     and add some privete to width and height
     """
     def __init__(self, width, height):
-        """using the int validator on width and height"""
+        """
+        using the int validator on width and height
+        """
         self.integer_validator("width", width)
         self.integer_validator("height", height)
+
         self.__width = width
         self.__height = height
