@@ -1,0 +1,18 @@
+====================
+How to use 1-my_list
+====================
+
+THis module defines a class MyList tha inherits the built-in list.
+
+::
+
+    >>> MyList = __import__('1-my_list').MyList
+    >>> my_list = MyList()
+    >>> type(my_list)
+    >>> <class '1-my_list.MyList'>
+
+::
+    >>> print(my_list)
+    []
+
+::
