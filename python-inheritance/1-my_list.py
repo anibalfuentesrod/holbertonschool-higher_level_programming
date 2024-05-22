@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Writing a class "MyList" that inherits: list
+Writing a class that inherits list
 """
 
 
