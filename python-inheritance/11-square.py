@@ -20,7 +20,7 @@ class Square(Rectangle):
             size
         """
         super().__init__(size, size)
-    """Maybe in here is the need of comment"""
+    """def the str and this func returns"""
     def __str__(self):
         """Return a string representation of the Square."""
         return f"[Square] {self._Rectangle__width}/{self._Rectangle__height}"
