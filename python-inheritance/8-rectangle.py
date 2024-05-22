@@ -34,7 +34,13 @@ class BaseGeometry:
             raise ValueError(name + ' must be greater than 0')
 
 
+"""
+The class tha inherited
+"""
+
+
 class Rectangle(BaseGeometry):
+    """definifn the func name"""
     def __init__(self, width, height):
         self.integer_validator("width", width)
         self.integer_validator("height", height)
