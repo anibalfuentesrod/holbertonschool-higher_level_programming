@@ -13,7 +13,12 @@ making a new inherited class call square
 class Square(Rectangle):
     """A class representing a square."""
     def __init__(self, size):
-        """Initialize the Square with size."""
+        """
+        Initialize the Square with size.
+        Args:
+            size
+            size
+        """
         super().__init__(size, size)
 
     def __str__(self):
