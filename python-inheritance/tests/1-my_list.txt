@@ -26,3 +26,11 @@
 [-2, -1, 1, 3, 4, 5]
 >>> print(my_list)
 [1, 4, -2, 3, 5, -1]
+
+>>> empty_list = MyList()
+>>> print(empty_list)
+[]
+>>> empty_list.print_sorted()
+[]
+>>> print(empty_list)
+[]
