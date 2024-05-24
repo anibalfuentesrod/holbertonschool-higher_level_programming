@@ -52,7 +52,7 @@ class Circle(Shape):
         self.radius = radius
 
     def area(self):
-        return math.pi * self.radius * self.radius ** 2
+        return math.pi * abs(self.radius) ** 2
 
     def perimeter(self):
         return 2 * math.pi * abs(self.radius)
@@ -80,7 +80,7 @@ class Rectangle(Shape):
         return 2 * (abs(self.width) + abs(self.height))
 
 
-def shape_info(shape):
+def shape_info(shape: Shape):
     """
     Prints the area and perimeter of the given shape
     """
