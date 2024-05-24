@@ -10,7 +10,7 @@ making a class Shape with two subclasses name Circle, Rectangle
 
 class Shape(ABC):
     """
-    Absrract base class represents a geometry shape
+    Abstract base class represents a geometry shape
 
     Methods:
         area()
@@ -52,7 +52,7 @@ class Circle(Shape):
         self.radius = radius
 
     def area(self):
-        return math.pi * abs(self.radius) * abs(self.radius)
+        return math.pi * abs(self.radius) * abs(self.radius) ** 2
 
     def perimeter(self):
         return 2 * math.pi * abs(self.radius)
@@ -77,7 +77,7 @@ class Rectangle(Shape):
         return self.width * self.height
 
     def perimeter(self):
-        return 2 * self.width + self.height
+        return 2 * (abs(self.width) + abs(self.height))
 
 
 def shape_info(shape):
