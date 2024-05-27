@@ -5,5 +5,10 @@ import json
 
 def save_to_json_file(my_obj, filename):
     """Using the built-in function dump()"""
-    with open(filename, 'w', encoding='utf-8') as f:
-        json.dump(my_obj, f)
+    try:
+        with open(filename, 'w', encoding='utf-8') as f:
+            json.dump(my_obj, f)
+    except PermissionError as pe:
+        print(f"[PermissionEroor] {pe}")
+    except TypeError as te:
+        print(f"[TypeErronr] {te}")
