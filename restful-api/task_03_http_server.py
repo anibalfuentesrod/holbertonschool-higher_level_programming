@@ -31,7 +31,7 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
 
 
 def run():
-    server_address = ('', 8060)
+    server_address = ('', 8000)
     http = HTTPServer(server_address, SimpleHTTPRequestHandler)
     print('Starting server...')
     http.serve_forever()
