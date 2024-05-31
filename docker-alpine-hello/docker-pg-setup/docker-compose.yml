@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_DB: mydatabase
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+    networks:
+      - pg_network
+
+  admin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: anibalfuentesrodriguez@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: admin2005
+    depends_on:
+      - db
+    ports:
+      - "5050:80"
+    networks:
+      - pg_network
+
+networks:
+  pg_network:
+    driver: bridge
