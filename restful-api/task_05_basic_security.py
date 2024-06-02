@@ -11,7 +11,7 @@ users = {
   }
 app = Flask(__name__)
 auth = HTTPBasicAuth()
-app.config['JWT_SECRET_KEY'] = 'abc123'
+app.config['JWT_SECRET_KEY'] = 'anibal'
 jwt = JWTManager(app)
 
 @auth.verify_password
