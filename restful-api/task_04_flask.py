@@ -37,7 +37,7 @@ def users_specific(username):
 
 @app.route("/add_user", methods=["POST"])
 def add_user():
-    """ adds a new user to the dict """
+    """add new usr"""
     if request.get_json() is None:
         abort(400, "Not a JSON")
 
