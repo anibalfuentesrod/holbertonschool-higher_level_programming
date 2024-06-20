@@ -1,10 +1,15 @@
 #!/usr/bin/env python3
+"""list states in databse"""
 import MySQLdb
 import sys
 
+
 def list_states(username, password, dbname):
-    # connects to mysql database
-    db = MySQLdb.connect(host="localhost", user=username, password=password, db=dbname)
+    """connects to mysql database"""
+    db = MySQLdb.connect(host="localhost",
+                         user=username,
+                         password=password,
+                         db=dbname)
 
     # create a cursor object
     cursor = db.cursor()
@@ -21,6 +26,7 @@ def list_states(username, password, dbname):
 
     cursor.close()
     db.close()
+
 
 if __name__ == "__main__":
     # get command line arg
