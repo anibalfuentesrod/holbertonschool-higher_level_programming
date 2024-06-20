@@ -19,7 +19,7 @@ def states_with_n(username, password, dbname):
     """connect mysql db and list states with n"""
     # create a connection str
     conn_str = f"mysql+mysqldb://{username}:{password}@localhost/{dbname}"
-    
+
     # create an engine
     engine = create_engine(conn_str)
 
@@ -30,12 +30,14 @@ def states_with_n(username, password, dbname):
     session = Session()
 
     # query states with starting letter N and order by id
-    states = session.query(State).filter(State.name.like('N%')).order_by(State.id.asc()).all()
+    states = session.query(State).filter(
+        State.name.like('N%')).order_by(
+            State.id.asc()).all()
 
     # print each state
     for state in states:
         print(f"({state.id}, '{state.name}')")
-    
+
     session.close()
 
 
