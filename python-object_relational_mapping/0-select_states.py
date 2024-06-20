@@ -1,32 +1,41 @@
 #!/usr/bin/env python3
-"""list states in databse"""
+"""list states in database"""
 import MySQLdb
 import sys
+from sqlalchemy import create_engine
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy import Column, Integer, String
 
+Base = declarative_base()
+
+class State(Base):
+    __tablename__ = 'states'
+    id = Column(Integer, primary_key=True, nullable=False)
+    name = Column(String(256), nullable=False)
 
 def list_states(username, password, dbname):
     """connects to mysql database"""
-    db = MySQLdb.connect(host="localhost",
-                         user=username,
-                         password=password,
-                         db=dbname)
+    # create a connection string
+    connection_string = f"mysql+mysqldb://{username}:{password}@localhost/{dbname}"
 
-    # create a cursor object
-    cursor = db.cursor()
+    # create an engine
+    engine = create_engine(connection_string)
 
-    # execute the sql query
-    cursor.execute("SELECT * FROM states ORDER BY id ASC")
+    # create a configured "Session" class
+    Session = sessionmaker(bind=engine)
 
-    # fetch all the rows
-    rows = cursor.fetchall()
+    # create a Session
+    session = Session()
 
-    # print each row
-    for row in rows:
-        print(row)
+    # query all states and order by id
+    states = session.query(State).order_by(State.id.asc()).all()
 
-    cursor.close()
-    db.close()
+    # print each state
+    for state in states:
+        print(f"({state.id}, '{state.name}')")
 
+    session.close()
 
 if __name__ == "__main__":
     # get command line arg
