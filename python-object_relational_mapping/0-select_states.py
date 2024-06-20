@@ -9,18 +9,20 @@ from sqlalchemy import Column, Integer, String
 
 Base = declarative_base()
 
+
 class State(Base):
     __tablename__ = 'states'
     id = Column(Integer, primary_key=True, nullable=False)
     name = Column(String(256), nullable=False)
 
+
 def list_states(username, password, dbname):
     """connects to mysql database"""
     # create a connection string
-    connection_string = f"mysql+mysqldb://{username}:{password}@localhost/{dbname}"
+    conn_str = f"mysql+mysqldb://{username}:{password}@localhost/{dbname}"
 
     # create an engine
-    engine = create_engine(connection_string)
+    engine = create_engine(conn_str)
 
     # create a configured "Session" class
     Session = sessionmaker(bind=engine)
@@ -36,6 +38,7 @@ def list_states(username, password, dbname):
         print(f"({state.id}, '{state.name}')")
 
     session.close()
+
 
 if __name__ == "__main__":
     # get command line arg
