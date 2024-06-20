@@ -1,50 +1,37 @@
 #!/usr/bin/env python3
-"""list states in database"""
 import MySQLdb
 import sys
-from sqlalchemy import create_engine
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
-from sqlalchemy import Column, Integer, String
-
-Base = declarative_base()
 
 
-class State(Base):
-    __tablename__ = 'states'
-    id = Column(Integer, primary_key=True, nullable=False)
-    name = Column(String(256), nullable=False)
+def list_users(username, password):
+    """Connects to MySQL database and lists all users"""
+    db = MySQLdb.connect(host="localhost",
+                         user=username,
+                         passwd=password,
+                         db="mysql",  # Connect to the 'mysql' database
+                         port=3306)
 
+    # Create a cursor object
+    cursor = db.cursor()
 
-def list_states(username, password, dbname):
-    """connects to mysql database"""
-    # create a connection string
-    conn_str = f"mysql+mysqldb://{username}:{password}@localhost/{dbname}"
+    # Execute the SQL query to list all users
+    cursor.execute("SELECT user, host FROM user")
 
-    # create an engine
-    engine = create_engine(conn_str)
+    # Fetch all the rows
+    rows = cursor.fetchall()
 
-    # create a configured "Session" class
-    Session = sessionmaker(bind=engine)
+    # Print each row
+    for row in rows:
+        print(row)
 
-    # create a Session
-    session = Session()
-
-    # query all states and order by id
-    states = session.query(State).order_by(State.id.asc()).all()
-
-    # print each state
-    for state in states:
-        print(f"({state.id}, '{state.name}')")
-
-    session.close()
+    cursor.close()
+    db.close()
 
 
 if __name__ == "__main__":
-    # get command line arg
+    # Get command line arguments
     username = sys.argv[1]
     password = sys.argv[2]
-    dbname = sys.argv[3]
 
-    # call the function to list states
-    list_states(username, password, dbname)
+    # Call the function to list users
+    list_users(username, password)
