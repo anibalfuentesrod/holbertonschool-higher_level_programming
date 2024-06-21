@@ -20,7 +20,9 @@ if __name__ == "__main__":
     session = Session()
 
     # query and del all states obj that have letter 'a'
-    states_to_delete = session.query(State).filter(State.name.contains('a')).all()
+    states_to_delete = session.query(State).filter(
+        State.name.contains('a')).all()
+    # iterates trhough to deleted with a for loop
     for state in states_to_delete:
         session.delete(state)
     session.commit()
