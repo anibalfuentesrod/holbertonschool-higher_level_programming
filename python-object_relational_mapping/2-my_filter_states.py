@@ -1,53 +1,47 @@
 #!/usr/bin/python3
-"""filters the usr input to match the state"""
-import MySQLdb
+"""Fetch states from the database safely"""
+
 import sys
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, declarative_base
-from sqlalchemy import Column, Integer, String
-
-Base = declarative_base()
-"""no c si hay q add comment aqui pero ps"""
-
-
-class State(Base):
-    """state class representing state table"""
-    __tablename__ = 'states'
-    id = Column(Integer, primary_key=True, nullable=False)
-    name = Column(String(256), nullable=False)
-
-
-def filter_states(username, password, dbname, state_name):
-    """connect to mysql db and filter states, se deja llevar del user input"""
-    # conectando
-    conn_str = f"mysql+mysqldb://{username}:{password}@localhost:3306/{dbname}"
-
-    # empieza engine(crear)
-    engine = create_engine(conn_str)
-
-    # creando una session class
-    Session = sessionmaker(bind=engine)
-
-    # crea session
-    session = Session()
-
-    # esta es la linea de codigo q filtra en user input y compara
-    states = session.query(State).filter(State.name == state_name).order_by(
-        State.id.asc()).all()
-
-    # printea los states iterando por cada uno con un for loop
-    for state in states:
-        print(f"({state.id}, '{state.name}')")
-
-    # cerrando la session duhh
-    session.close()
-
+import MySQLdb
 
 if __name__ == "__main__":
-    """Command line argument"""
+    if len(sys.argv) != 5:
+        print("Usage: {} <mysql username> \
+              <mysql password> <database name> \
+              <state name>".format(sys.argv[0]))
+        sys.exit(1)
+
     username = sys.argv[1]
     password = sys.argv[2]
     dbname = sys.argv[3]
     state_name = sys.argv[4]
 
-    filter_states(username, password, dbname, state_name)
+    # Establish a connection to the MySQL database
+    db = MySQLdb.connect(
+        host="localhost",
+        port=3306,
+        user=username,
+        passwd=password,
+        db=dbname,
+        charset="utf8"
+    )
+
+    # Create a cursor to execute SQL queries
+    cursor = db.cursor()
+
+    # Prepare the SQL query using placeholders to prevent SQL injection
+    query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
+
+    # Execute the query, safely passing the user input
+    cursor.execute(query, (state_name,))
+
+    # Retrieve all rows from the executed query
+    states = cursor.fetchall()
+
+    # Display the fetched states
+    for state in states:
+        print(state)
+
+    # Close the cursor and database connection
+    cursor.close()
+    db.close()
