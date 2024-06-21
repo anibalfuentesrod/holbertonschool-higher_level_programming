@@ -37,7 +37,7 @@ def states_with_n(username, password, dbname):
 
     # print each state
     for state in states:
-        print(f"{state.id}, '{state.name}'")
+        print(f"({state.id}, '{state.name}')")
 
     session.close()
 
