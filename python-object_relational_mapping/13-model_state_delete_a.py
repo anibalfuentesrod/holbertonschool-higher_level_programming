@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """script that deletes all states containing letter 'a'"""
 import sys
 from sqlalchemy import create_engine
