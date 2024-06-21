@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """filters the usr input to match the state"""
 import MySQLdb
 import sys
@@ -19,7 +19,7 @@ class State(Base):
 def filter_states(username, password, dbname, state_name):
     """connect to mysql db and filter states, se deja llevar del user input"""
     # conectando
-    conn_str = f"mysql+mysqldb://{username}:{password}@localhost/{dbname}"
+    conn_str = f"mysql+mysqldb://{username}:{password}@localhost:3306/{dbname}"
 
     # empieza engine(crear)
     engine = create_engine(conn_str)
@@ -31,9 +31,8 @@ def filter_states(username, password, dbname, state_name):
     session = Session()
 
     # esta es la linea de codigo q filtra en user input y compara
-    states = session.query(State).filter(
-        State.name == state_name
-    ).order_by(State.id.asc()).all()
+    states = session.query(State).filter(State.name == state_name).order_by(
+        State.id.asc()).all()
 
     # printea los states iterando por cada uno con un for loop
     for state in states:
