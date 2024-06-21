@@ -13,9 +13,7 @@ if __name__ == "__main__":
     dbname = sys.argv[3]
 
     # create engine to connect to mysql server
-    engine = create_engine(f'mysql+mysqldb://{username}:
-                           {password}@localhost:3306/{dbname}', 
-                           pool_pre_ping=True)
+    engine = create_engine(f'mysql+mysqldb://{username}:{password}@localhost:3306/{dbname}', pool_pre_ping=True)
 
 
     # create a config session class
