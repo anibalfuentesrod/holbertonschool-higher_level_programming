@@ -7,6 +7,7 @@ from sqlalchemy.orm import sessionmaker, declarative_base
 from sqlalchemy import Column, Integer, String
 
 Base = declarative_base()
+"""no c si hay q add comment aqui pero ps"""
 
 
 class State(Base):
