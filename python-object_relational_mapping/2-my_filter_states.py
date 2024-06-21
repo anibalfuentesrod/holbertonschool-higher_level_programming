@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """filters the usr input to match the state"""
 import MySQLdb
 import sys
