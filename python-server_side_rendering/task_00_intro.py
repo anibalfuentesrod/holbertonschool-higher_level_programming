@@ -1,7 +1,7 @@
 import os
 
 def generate_invitations(template, attendees):
-    # Check input types
+    """Checks what type of input is"""
     if not isinstance(template, str):
         print("Error: Template is not a string.")
         return
@@ -9,7 +9,7 @@ def generate_invitations(template, attendees):
         print("Error: Attendees should be a list of dictionaries.")
         return
 
-    # Check for empty inputs
+    """Checks if template is not empty and if yes prints an error"""
     if not template:
         print("Error: Template is empty, no output files generated.")
         return
@@ -17,7 +17,7 @@ def generate_invitations(template, attendees):
         print("No data provided, no output files generated.")
         return
 
-    # Process each attendee
+    """Iterates over the list of atten.. and replace the placeholder in the template"""
     for i, attendee in enumerate(attendees, start=1):
         output = template
         for key in ["name", "event_title", "event_date", "event_location"]:
@@ -26,24 +26,24 @@ def generate_invitations(template, attendees):
                 value = "N/A"
             output = output.replace(f"{{{key}}}", str(value))
 
-        # Write to file
+        """writes to a file"""
         output_filename = f"output_{i}.txt"
         with open(output_filename, 'w') as f:
             f.write(output)
         print(f"Generated {output_filename}")
 
-# Example usage
+"""example of usage"""
 if __name__ == "__main__":
-    # Read the template from a file
+    """Read a template frrom a file"""
     with open('template.txt', 'r') as file:
         template_content = file.read()
 
-    # List of attendees
+    """list of atterndees"""
     attendees = [
         {"name": "Alice", "event_title": "Python Conference", "event_date": "2023-07-15", "event_location": "New York"},
         {"name": "Bob", "event_title": "Data Science Workshop", "event_date": "2023-08-20", "event_location": "San Francisco"},
         {"name": "Charlie", "event_title": "AI Summit", "event_date": None, "event_location": "Boston"}
     ]
 
-    # Call the function with the template and attendees list
+    """call the fun with the template and attendees"""
     generate_invitations(template_content, attendees)
