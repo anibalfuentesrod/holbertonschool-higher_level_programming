@@ -4,4 +4,4 @@
 
 def to_str(n: float) -> str:
     """returns the var(n) in a string"""
-    return f"{n}"
+    return str(n)
